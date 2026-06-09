@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, Heart, Minus, Plus, Share2, Star, Truck, Shield, RotateCcw } from "lucide-react";
 import { toast } from "sonner";
-import { PRODUCTS } from "@/lib/products";
+import { PRODUCTS, type Product } from "@/lib/products";
 import { useShop } from "@/contexts/ShopProvider";
 import { ProductCard } from "@/components/ProductCard";
 
 export const Route = createFileRoute("/products/$id")({
-  loader: ({ params }) => {
+  loader: ({ params }): { product: Product } => {
     const product = PRODUCTS.find((p) => p.id === params.id);
     if (!product) throw notFound();
     return { product };
