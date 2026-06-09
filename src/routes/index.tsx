@@ -1,29 +1,32 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "@/components/Hero";
+import { CatalogSection } from "@/components/CatalogSection";
+import { Features } from "@/components/Features";
+import { Testimonials } from "@/components/Testimonials";
+import { FAQ } from "@/components/FAQ";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "ShopFlow — Premium tools, hand-picked" },
+      { name: "description", content: "A curated catalog of premium hardware and everyday objects from independent studios." },
+      { property: "og:title", content: "ShopFlow — Premium tools, hand-picked" },
+      { property: "og:description", content: "Shop hand-picked hardware and lifestyle essentials. Free overnight shipping over $100." },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Hero />
+      <Features />
+      <CatalogSection />
+      <Testimonials />
+      <FAQ />
+    </>
   );
 }
