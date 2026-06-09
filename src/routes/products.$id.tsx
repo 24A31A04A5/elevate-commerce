@@ -55,7 +55,7 @@ export const Route = createFileRoute("/products/$id")({
 });
 
 function ProductPage() {
-  const { product } = Route.useLoaderData();
+  const { product } = Route.useLoaderData() as { product: Product };
   const { addToCart, setCartOpen, toggleWishlist, isWished, trackView } = useShop();
   const [qty, setQty] = useState(1);
   const [activeImg, setActiveImg] = useState(product.image);
